@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            min-height: 100vh;
+            background: #222;
+        }
+        div {
+            position: relative;
+        }
+        #rangeValue {
+            position: absolute;
+            top: 1px;
+            right: -60px;
+            padding: 2px;
+            width: 50px;
+            background: #fff;
+            text-align: center;
+        }
+        #rangeValue::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%) rotate(45deg);
+                -ms-transform: translateY(-50%) rotate(45deg);
+                    transform: translateY(-50%) rotate(45deg);
+            left: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+        }
+        .range {
+            width: 400px;
+            height: 4px;
+            background-color: #111;
+            -webkit-appearance: none;
+            outline: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #00bcd4;
+            cursor: pointer;
+        }
+        .range::-moz-range-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #00bcd4;
+            cursor: pointer;
+        }
+        .range::-ms-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #00bcd4;
+            cursor: pointer;
+        }
+        .range::-webkit-slider-thumb:active {
+            -webkit-box-shadow: 0 0 10px #03d6f1;
+                    box-shadow: 0 0 10px #03d6f1;
+        }
+        .range::-moz-range-thumb:active {
+            -webkit-box-shadow: 0 0 10px #03d6f1;
+                    box-shadow: 0 0 10px #03d6f1;
+        }
+        .range::-ms-thumb:active {
+            -webkit-box-shadow: 0 0 10px #03d6f1;
+                    box-shadow: 0 0 10px #03d6f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span id="rangeValue">0</span>
+        <input
+            type="range"
+            name="" class="range"
+            value="0"
+            min="0"
+            max="100"
+            onmousemove="rangeSlider(this.value)"
+            onchange="rangeSlider(this.value)"
+        >
+    </div>
+
+    <script>
+        function rangeSlider(value) {
+            document.getElementById('rangeValue').innerHTML = value;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            background-color: #262626;
+            color: #fff;
+        }
+
+        .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 1);
+            border-radius: 5px;
+        }
+
+        .box p {
+            text-align: center;
+        }
+
+        .box label {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        .box label input {
+            display: none;
+        }
+        .box label input span:focus {
+            box-shadow: 0 0 0 1px blue;
+        }
+
+        .box label span {
+            position: relative;
+            padding-left: 25px;
+            display: block;
+        }
+
+        .box label input+span::before {
+            content: '';
+            width: 1em;
+            height: 1em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            border: 1px solid #fff;
+        }
+
+        .box label input:checked+span::after {
+            content: '';
+            width: .5em;
+            height: .5em;
+            position: absolute;
+            top: calc(.25em + 1px);
+            left: calc(.25em + 1px);
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .box label input:disabled + span::before {
+            border: 1px solid #444;
+            cursor: default;
+        }
+        .box label input:checked:disabled + span::after {
+            background-color: #444;
+            cursor: default;
+        }
+        .box label input:disabled + span,
+        .box label input:checked:disabled + span{
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>Do you like an apple?</p>
+        <label for="yes">
+            <input type="radio" name="like" id="yes" checked>
+            <span class="yes">Yes</span>
+        </label>
+        <label for="no">
+            <input type="radio" name="like" id="no">
+            <span class="no">No</span>
+        </label>
+        <!-- <label for="dn">
+            <input type="radio" name="like" id="dn" disabled>
+            <span class="dn">Don't know</span>
+        </label>
+        <label for="what">
+            <input type="radio" name="like" id="what" checked disabled>
+            <span class="what">What is an apple?</span>
+        </label> -->
+    </div>
+</body>
+
+</html>

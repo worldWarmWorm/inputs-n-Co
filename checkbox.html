@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+        /* label */
+        .check {
+            padding-left: 1.5em;
+            display: block;
+            margin-bottom: .35em;
+        }
+
+        /* check body default */
+        .input-default {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+        }
+
+        /* check body custom */
+        .input-custom {
+            margin-left: -1.5em;
+            margin-top: .1em;
+            position: absolute;
+            width: .8em;
+            height: .8em;
+            box-shadow: 0 0 0 2px #db8e28;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .3s ease-in all;
+        }
+
+        /* check */
+        .input-custom::after {
+            content: '';
+            width: .6em;
+            height: .2em;
+            background-color: transparent;
+            display: block;
+        }
+        .input-default:checked + .input-custom::after,
+        .input-default:checked:disabled + .input-custom::after {
+            border-bottom: 2px solid #fff;
+            border-left: 2px solid #fff;
+            transform: rotate(-45deg);
+        }
+
+        /* checked */
+        .input-default:checked + .input-custom {
+            background-color: #db8e28;
+        }
+
+        /* focused */
+        .input-default:focus + .input-custom {
+            box-shadow: 
+                0 0 0 2px #db8e28,
+                0 0 0 3px #ee8906;
+        }
+        
+        /* disabled */
+        .input-default:disabled + .input-custom {
+            box-shadow: 0 0 0 2px #7f8c8d;
+        }
+
+        /* checked disabled */
+        .input-default:checked:disabled + .input-custom {
+            background-color: #7f8c8d;
+        }
+
+    </style>
+
+</head>
+<body>
+    <label class="check">
+        <input class="input-default" type="checkbox">
+        <span class="input-custom"></span>
+        Text
+    </label>
+
+    <label class="check">
+        <input class="input-default" type="checkbox" checked>
+        <span class="input-custom"></span>
+        Text
+    </label>
+
+    <label class="check">
+        <input class="input-default" type="checkbox" disabled>
+        <span class="input-custom"></span>
+        Text
+    </label>
+
+    <label class="check">
+        <input class="input-default" type="checkbox" checked disabled>
+        <span class="input-custom"></span>
+        Text
+    </label>
+</body>
+</html>
