@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="nouislider.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="slider"></div>
+
+    <script src="nouislider.min.js"></script>
+    <script>
+        var slider = document.getElementById('slider');
+
+        noUiSlider.create(slider, {
+            start: [0, 1000],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 1000
+            },
+            behaviour: 'tap-drag',
+            tooltips: true,
+            format: {
+                from: function (value) {
+                    return Math.trunc(value);
+                },
+                to: function (value) {
+                    return Math.trunc(value);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+#slider {
+    margin: 50px;
+    max-width: 400px;
+}
+
+.rs-container {
+    margin: 50px;
+}
+
+.noUi-handle {
+    cursor: grab;
+    outline: none;
+}
+
+.noUi-active {
+    cursor: grabbing;
+}
